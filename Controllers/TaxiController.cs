@@ -4,20 +4,17 @@ using Microsoft.AspNetCore.Mvc;
 namespace MiProyecto.Controllers;
 
 [ApiController]
-[Route("[controller]")]
-public class TaxisController : ControllerBase
+[Route("api/autores")]
+public class AutoresController : ControllerBase
 {
-    private readonly ITaxiService _taxiService;
-
-    public TaxisController(ITaxiService taxiService)
-    {
-        _taxiService = taxiService;
-    }
-
     [HttpGet]
-    public ActionResult<IEnumerable<Taxi>> GetTaxis(int page = 1, int pageSize = 10)
+    public ActionResult<List<Taxi>> Get()
     {
-        var taxis = _taxiService.GetTaxis(page, pageSize);
-        return Ok(taxis);
+        //Por ahora una lista estática hasta que creemos la bd
+        return new List<Taxi>()
+        {
+            new Taxi { Id = 5391, Plate = "5Y58-95HU" },
+
+        };
     }
 }
