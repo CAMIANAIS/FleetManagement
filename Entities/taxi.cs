@@ -1,4 +1,4 @@
-﻿namespace FleetManagement.Models
+﻿namespace FleetManagement.Entities
 {
     public class Taxi
     {

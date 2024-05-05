@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using FleetManagement.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace FleetManagement.Data
 {
@@ -9,15 +10,16 @@ namespace FleetManagement.Data
         {
         }
 
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+ 
+
+        public DbSet<Taxi> Taxis { get; set; } //el nombre de esta propiedad será el que tenga la tabla generada en la BD
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            if (!optionsBuilder.IsConfigured)
-            {
-                var connectionString = "Host=ep-old-hill-a4d5re0z-pooler.us-east-1.aws.neon.tech;Database=verceldb;Username=default;Password=xCQEL4kMeT1t";
-                optionsBuilder.UseNpgsql(connectionString);
-            }
+            modelBuilder.Entity<Taxi>().ToTable("Taxi");
+            modelBuilder.Entity<Trajectory>.ToTable("Trajectory");
         }
 
-        // DbSet properties here
+
     }
 }
+
