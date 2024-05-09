@@ -18,8 +18,12 @@ public class TaxisController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> GetTaxisAsync()
+    public async Task<IActionResult> GetTaxisAsync(int pageNumber = 1, int pageSize = 10)
     {
-        return Ok(await _context.Taxis.ToListAsync());
+        var query = _context.Taxis
+            .Select(t => new { id = t.Id, plate = t.Plate });
+        var totalCount = await query.CountAsync();
+        var items = await query.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToListAsync();
+        return Ok(new { items, totalCount });
     }
 }

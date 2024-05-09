@@ -1,8 +1,9 @@
 ﻿using FleetManagement.Data;
 using FleetManagement.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
-namespace FleetManagement.Controllers
+namespace MiProyecto.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
