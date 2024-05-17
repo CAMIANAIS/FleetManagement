@@ -3,6 +3,7 @@ using System;
 using FleetManagement.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace FleetManagement.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20240517194858_UpdateTaxiSchema")]
+    partial class UpdateTaxiSchema
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,55 +27,44 @@ namespace FleetManagement.Migrations
 
             modelBuilder.Entity("FleetManagement.Entities.Taxi", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("plate")
+                    b.Property<string>("Plate")
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.ToTable("taxis", (string)null);
                 });
 
             modelBuilder.Entity("FleetManagement.Entities.Trajectory", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("integer");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("id"));
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("date")
+                    b.Property<DateTime>("Date")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<double>("latitude")
+                    b.Property<double>("Latitude")
                         .HasColumnType("double precision");
 
-                    b.Property<double>("longitude")
+                    b.Property<double>("Longitude")
                         .HasColumnType("double precision");
 
-                    b.Property<int>("taxi_id")
+                    b.Property<int>("TaxiId")
                         .HasColumnType("integer");
 
-                    b.HasKey("id");
-
-                    b.HasIndex("taxi_id");
+                    b.HasKey("Id");
 
                     b.ToTable("Trajectories", (string)null);
-                });
-
-            modelBuilder.Entity("FleetManagement.Entities.Trajectory", b =>
-                {
-                    b.HasOne("FleetManagement.Entities.Taxi", null)
-                        .WithMany()
-                        .HasForeignKey("taxi_id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

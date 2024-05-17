@@ -2,8 +2,10 @@
 {
     public class Taxi
     {
-        public int Id { get; set; }
-        public string Plate { get; set; }
+        public int id { get; set; }
+        public string plate { get; set; }
+
+        public ICollection<Trajectory> Trajectories { get; set; }
     }
 
 }

@@ -2,10 +2,12 @@
 {
     public class Trajectory
     {
-        public int Id { get; set; }
-        public int TaxiId { get; set; }
-        public DateTime Date { get; set; }
-        public double Latitude { get; set; }
-        public double Longitude { get; set; }
+        public int id { get; set; }
+        public int taxi_id { get; set; }
+        public DateTime date { get; set; }
+        public double latitude { get; set; }
+        public double longitude { get; set; }
+
+        public Taxi Taxi { get; set; }
     }
 }
