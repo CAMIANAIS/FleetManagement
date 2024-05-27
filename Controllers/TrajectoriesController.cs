@@ -19,13 +19,15 @@ namespace MiProyecto.Controllers
         [HttpGet]
         public async Task<IActionResult> GetLocationsByTaxiAndDate(int taxiId, DateTime date, int pageNumber = 1, int pageSize = 10)
         {
-            var query = _context.Trajectories
-                .Where(t => t.taxi_id == taxiId && t.date.Date == date.Date)
+            var searchDate = date.ToUniversalTime().Date;
+
+            var query = _context.trajectories
+                .Where(t => t.taxiid == taxiId && t.date.Date == searchDate.Date)
                 .Select(t => new
                 {
                     t.latitude,
                     t.longitude,
-                    timestamp = t.date
+                    Timestamp = t.date
                 });
 
             var totalCount = await query.CountAsync();
@@ -36,12 +38,13 @@ namespace MiProyecto.Controllers
 
             return Ok(new
             {
-                taxiId,
-                date = date.Date,
-                items,
-                totalCount
+                TaxiId = taxiId,
+                Date = date.ToString("dd/MM/yyyy"),
+                Items = items,
+                TotalCount = totalCount
             });
         }
+
         [HttpGet]
         public async Task<IActionResult> GetLatestLocations(int pageNumber = 1, int pageSize = 10)
         {
@@ -61,7 +64,7 @@ namespace MiProyecto.Controllers
                     t.plate,
                     t.LatestTrajectory.latitude,
                     t.LatestTrajectory.longitude,
-                    timestamp = t.LatestTrajectory.date
+                    Timestamp = t.LatestTrajectory.date
                 });
 
             var totalCount = await query.CountAsync();
@@ -72,8 +75,8 @@ namespace MiProyecto.Controllers
 
             return Ok(new
             {
-                items,
-                totalCount
+                Items = items,
+                TotalCount = totalCount
             });
         }
     }

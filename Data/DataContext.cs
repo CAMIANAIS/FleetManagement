@@ -11,15 +11,24 @@ namespace FleetManagement.Data
         }
 
         public DbSet<Taxi> taxis { get; set; }
-        public DbSet<Trajectory> Trajectories { get; set; } 
+        public DbSet<Trajectory> trajectories { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Taxi>().ToTable("taxis");
+            modelBuilder.Entity<Taxi>().HasKey(t => t.id);
+   
+
             modelBuilder.Entity<Trajectory>().ToTable("trajectories");
+            modelBuilder.Entity<Trajectory>().HasKey(tr => tr.idtrajectories);
+           
+
             modelBuilder.Entity<Trajectory>()
-    .HasOne<Taxi>()
-    .WithMany() // Asumiendo una relación uno a muchos
-    .HasForeignKey(t => t.taxi_id);
+                .HasOne(tr => tr.Taxi)
+                .WithMany(t => t.Trajectories)
+                .HasForeignKey(tr => tr.taxiid);
+
+            base.OnModelCreating(modelBuilder);
         }
     }
 }
+
