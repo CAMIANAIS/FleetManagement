@@ -3,7 +3,7 @@ using FleetManagement.Entities;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
-namespace MiProyecto.Controllers
+namespace FleetManagement.Controllers
 {
     [ApiController]
     [Route("api/[controller]/[action]")]
