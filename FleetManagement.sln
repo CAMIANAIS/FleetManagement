@@ -4,8 +4,21 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement", "FleetManagement.csproj", "{AC435774-40E0-434F-B738-528F82C22496}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1891C78B-8D7C-4043-AB40-82375536C371} = {1891C78B-8D7C-4043-AB40-82375536C371}
+		{89914D63-24BF-4E43-8097-508BD0232EF0} = {89914D63-24BF-4E43-8097-508BD0232EF0}
+		{90A89DE9-4C69-43BE-B84B-4DC6DA9F4F9F} = {90A89DE9-4C69-43BE-B84B-4DC6DA9F4F9F}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFleetManagement", "..\TestFleetManagemente\TestFleetManagement.csproj", "{022390B8-E52B-48BE-9C56-74EE16ACED9B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetManagement.Core", "..\FleetManagement.Core\FleetManagement.Core.csproj", "{89914D63-24BF-4E43-8097-508BD0232EF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetManagement.Application", "..\FleetManagement.Application\FleetManagement.Application.csproj", "{90A89DE9-4C69-43BE-B84B-4DC6DA9F4F9F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FleetManagement.Infrastructure", "..\FleetManagement.Infrastructure\FleetManagement.Infrastructure.csproj", "{1891C78B-8D7C-4043-AB40-82375536C371}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +34,18 @@ Global
 		{022390B8-E52B-48BE-9C56-74EE16ACED9B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{022390B8-E52B-48BE-9C56-74EE16ACED9B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{022390B8-E52B-48BE-9C56-74EE16ACED9B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89914D63-24BF-4E43-8097-508BD0232EF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89914D63-24BF-4E43-8097-508BD0232EF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89914D63-24BF-4E43-8097-508BD0232EF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89914D63-24BF-4E43-8097-508BD0232EF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{90A89DE9-4C69-43BE-B84B-4DC6DA9F4F9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{90A89DE9-4C69-43BE-B84B-4DC6DA9F4F9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{90A89DE9-4C69-43BE-B84B-4DC6DA9F4F9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{90A89DE9-4C69-43BE-B84B-4DC6DA9F4F9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1891C78B-8D7C-4043-AB40-82375536C371}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1891C78B-8D7C-4043-AB40-82375536C371}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1891C78B-8D7C-4043-AB40-82375536C371}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1891C78B-8D7C-4043-AB40-82375536C371}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
