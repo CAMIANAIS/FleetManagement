@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FleetManagement", "FleetMan
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestFleetManagement", "..\TestFleetManagemente\TestFleetManagement.csproj", "{022390B8-E52B-48BE-9C56-74EE16ACED9B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{1891C78B-8D7C-4043-AB40-82375536C371} = {1891C78B-8D7C-4043-AB40-82375536C371}
+		{89914D63-24BF-4E43-8097-508BD0232EF0} = {89914D63-24BF-4E43-8097-508BD0232EF0}
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
 EndProject

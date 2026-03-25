@@ -75,11 +75,11 @@ builder.Services.AddSwaggerGen(c =>
 var app = builder.Build();
 
 // 5. El Pipeline HTTP
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
+// if (app.Environment.IsDevelopment())
+// {
+app.UseSwagger();
+app.UseSwaggerUI();
+// }
 
 app.UseHttpsRedirection();
 
